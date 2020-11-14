@@ -1,0 +1,33 @@
+main {
+    border: 1px solid black;
+    position: relative;
+}
+
+.control {
+    margin-top: 10px;
+}
+
+.area__blocks {
+    height: 600px;
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+.area__stats {
+    height: 600px;
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+.modalWindow {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+
+.modalWindow__message {
+    background-color: rgba(17, 17, 17, 0.452);
+    border-radius: 15px;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="container mt-4">
+        <section class="title">
+            <div class="container">
+                <div class="row">
+                    <div class="col ">
+                        <h3>Game remove block</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="control">
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">
+                        <button type="button" class="btn btn-primary">Pause</button>
+                    </div>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary">Reset</button>
+                    </div>
+                    <div class="col-2">
+                        <p>points: <span>0</span></p>
+                    </div>
+                    <div class="col-2">
+                        <p>time left: <span>01:00</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="area__blocks"></div>
+                    </div>
+                    <div class="col-4">
+                        <div class="area__stats">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Larry</td>
+                                        <td>the Bird</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="modalWindow" id='modal'>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="modalWindow__message">
+                            <div class="modal-body">
+                                <h3>Your Score: 100</h3>
+                                <label for="name">You name</label>
+                                <input type="text" name="name" id="name">
+                            </div>
+                            <div class="row ml-2">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>
