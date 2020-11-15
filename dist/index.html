@@ -25,19 +25,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-1">
-                        <button type="button" class="btn btn-success" onclick="Game.start()">Start</button>
+                        <button id='startBtn' type="button" class="btn btn-success" onclick="Game.start()">Start</button>
                     </div>
-                    <div class="col-1">
-                        <button type="button" class="btn btn-primary">Pause</button>
-                    </div>
-                    <div class="col-2">
-                        <button type="button" class="btn btn-primary">Reset</button>
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary"onclick="Game.reset()">Reset</button>
                     </div>
                     <div class="col-2">
                         <p>points: <span>0</span></p>
                     </div>
                     <div class="col-2">
-                        <p>time left: <span id='timer'>01:00</span></p>
+                        <p>time left: <span id='timer'>60</span></p>
                     </div>
                 </div>
             </div>
