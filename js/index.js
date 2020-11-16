@@ -1,15 +1,15 @@
 const Game = (function () {
   const title = document.getElementById('timer')
   const btnStart = document.getElementById('startBtn')
-  let btnRes = document.getElementById('resBtn')
+  const btnRes = document.getElementById('resBtn')
   const modalWindow = document.querySelector('.modalWindow')
-  let points = document.getElementById('points')
-  let gameArea = document.querySelector('.area__blocks')
+  const points = document.getElementById('points')
+  const gameArea = document.querySelector('.area__blocks')
+  const userName = document.getElementById('name')
   
-
   let score = 0
   let isGameStart = false
-  let time = 5
+  let time = 2
   let myInterval = 1
 
   return {
