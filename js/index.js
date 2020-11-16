@@ -1,50 +1,66 @@
 const Game = (function () {
   const title = document.getElementById('timer')
-  const btn = document.getElementById('startBtn')
+  const btnStart = document.getElementById('startBtn')
+  let btnRes = document.getElementById('resBtn')
+  const modalWindow = document.querySelector('.modalWindow')
   let points = document.getElementById('points')
   let gameArea = document.querySelector('.area__blocks')
+  
+
   let score = 0
   let isGameStart = false
-    let time = 5
-      let myInterval = 1
+  let time = 5
+  let myInterval = 1
+
   return {
     start: function () {
-  
       isGameStart = true
+      this.renderBox()
       if (myInterval === 1) {
-        btn.innerHTML = 'Pause'
-        this.renderBox()
+        btnStart.innerHTML = 'Pause'
         myInterval = setInterval(function () {
           title.innerHTML = time--
           if (time <= -1) {
             clearInterval(myInterval)
+            Game.endGame()
           }
         }, 1000)
       } else {
         clearInterval(myInterval)
-        btn.innerHTML = 'Start'
+        btnStart.innerHTML = 'Start'
+        this.hideBox()
         myInterval = 1
       }
     },
+
     endGame: function () {
-      console.log('end game')
-      this.hideBox()
+      btnStart.innerHTML = 'Start'
+      this.hideBox();
+      this.open();
+      btnStart.disabled = true
+      btnRes.disabled = true
     },
+
     reset: function () {
-      btn.innerHTML = 'Start'
       time = 60
       score = 0
       title.innerHTML = time
       points.innerHTML = score
       this.hideBox()
       clearInterval(myInterval)
+      btnStart.innerHTML = 'Start'
     },
+
     close: function () {
-      document.getElementById('modal').style.display = 'none'
+      modalWindow.classList.add('hide')
+      btnStart.disabled = false
+      btnRes.disabled = false
     },
+
     open: function () {
-      document.getElementById('modal').style.display = ''
+      modalWindow.classList.remove('hide')
     },
+
     renderBox: function () {
       gameArea.innerHTML = ''
       const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet']
@@ -66,6 +82,7 @@ const Game = (function () {
 
       gameArea.insertAdjacentElement('afterbegin', box)
     },
+
     hideBox: function () {
       document.querySelector('.box').style.display = 'none'
     },
@@ -78,6 +95,7 @@ const Game = (function () {
         points.innerHTML = score += 1
       }
     },
+
     getrandom: function (min, max) {
       return Math.floor(Math.random() * (max - min) + min)
     },

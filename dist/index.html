@@ -28,7 +28,7 @@
                         <button id='startBtn' type="button" class="btn btn-success" onclick="Game.start()">Start</button>
                     </div>
                     <div class="col-3">
-                        <button type="button" class="btn btn-primary"onclick="Game.reset()">Reset</button>
+                        <button id='resBtn' type="button" class="btn btn-primary"onclick="Game.reset()">Reset</button>
                     </div>
                     <div class="col-2">
                         <p>points: <span id='points'>0</span></p>
@@ -78,7 +78,7 @@
                 </div>
             </div>
         </section>
-        <section class="modalWindow" id='modal'>
+        <section class="modalWindow hide" id='modal'>
             <div class="container">
                 <div class="row">
                     <div class="col">
