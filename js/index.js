@@ -6,7 +6,7 @@ const Game = (function () {
   const points = document.getElementById('points')
   const gameArea = document.querySelector('.area__blocks')
   const userName = document.getElementById('name')
-  
+  const scorePanel = document.getElementById('score')
   let score = 0
   let isGameStart = false
   let time = 2
@@ -39,6 +39,7 @@ const Game = (function () {
       this.open();
       btnStart.disabled = true
       btnRes.disabled = true
+      scorePanel.innerHTML = score
     },
 
     reset: function () {
@@ -51,10 +52,25 @@ const Game = (function () {
       btnStart.innerHTML = 'Start'
     },
 
+    save: function() {
+      const saveData = {
+        gameScore: score,
+        name: userName.value
+      }
+      localStorage.setItem('game', JSON.stringify(saveData))
+      this.addToTable()
+    },
+
+    addToTable: function() {
+      const data = JSON.parse(localStorage.getItem('game'))
+      
+    },
+
     close: function () {
       modalWindow.classList.add('hide')
       btnStart.disabled = false
       btnRes.disabled = false
+      
     },
 
     open: function () {

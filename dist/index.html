@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <main class="container mt-4">
+    <main class="container mt-3">
         <section class="title">
             <div class="container">
                 <div class="row">
@@ -35,6 +35,9 @@
                     </div>
                     <div class="col-2">
                         <p>time left: <span id='timer'>60</span></p>
+                    </div>
+                    <div class="col-2">
+                        <p>Remove as many cubes as possible with the mouse</p>
                     </div>
                 </div>
             </div>
@@ -91,7 +94,7 @@
                             <div class="row ml-2">
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" onclick="Game.close()">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-primary" onclick="Game.save()">Save changes</button>
                                 </div>
                             </div>
                         </div>
