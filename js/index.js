@@ -53,17 +53,44 @@ const Game = (function () {
     },
 
     save: function() {
-      const saveData = {
+      let saveObject =  {
+        id: Date.now(),
         gameScore: score,
         name: userName.value
       }
-      localStorage.setItem('game', JSON.stringify(saveData))
-      this.addToTable()
+      const values = JSON.parse(localStorage.getItem('game'));
+      if (values === null) {
+        values = [];
+      }
+
+      values.push(saveObject);
+      localStorage.setItem('game', JSON.stringify(values));
+      console.log(localStorage.getItem('game'));
+      this.addToTable(saveObject.name,saveObject.gameScore)
+      this.close()
+
     },
 
-    addToTable: function() {
-      const data = JSON.parse(localStorage.getItem('game'))
-      
+    addToTable: function(name,gameScore) {
+      let scoreNum = 0
+      const body = document.querySelector('tbody')
+      const tRow = document.createElement('tr')
+      const tHead = document.createElement('th')
+      const cellName = document.createElement('td')
+      const cellScore = document.createElement('td')
+
+      tHead.setAttribute('scope','row')
+      tHead.innerHTML = scoreNum++
+      cellName.innerHTML = name
+      cellScore.innerHTML = gameScore
+      tRow.append(tHead)
+      tRow.append(cellName)
+      tRow.append(cellScore)
+      body.append(tRow)
+    },
+    renderTableScore: function() {
+      data = JSON.parse(localStorage.getItem('game'))
+      data.map(item => this.addToTable(item.name,item.gameScore))
     },
 
     close: function () {
@@ -117,3 +144,5 @@ const Game = (function () {
     },
   }
 })()
+
+Game.renderTableScore()
