@@ -104,7 +104,7 @@ const Game = (function() {
 
 		renderBox: function() {
 			gameArea.innerHTML = ''
-			const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet'];
+			const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'violet','black'];
 			let box = document.createElement('div');
 			let boxSize = this.getrandom(30, 100);
 			let gameSize = gameArea.getBoundingClientRect();
@@ -113,16 +113,23 @@ const Game = (function() {
 			let randomColorIndex = this.getrandom(0, colors.length);
 
 			box.style.height = box.style.width = boxSize + 'px';
-      box.style.position = 'absolute';
-      box.style.transition = 'all 5s'
+			box.style.position = 'absolute';
 			box.style.backgroundColor = colors[randomColorIndex];
 			box.style.cursor = 'pointer';
 			box.style.top = this.getrandom(0, maxTop) + 'px';
 			box.style.left = this.getrandom(0, maxLeft) + 'px';
 			box.setAttribute('data-box', 'true');
 			box.setAttribute('class', 'box');
+			
+			gameArea.insertAdjacentElement('afterbegin',box);
+		},
 
-      gameArea.insertAdjacentElement('afterbegin', box);
+		repeat:function (item, times) {
+			let res = [];
+			for(let i = 0; i < times; i++) {
+			res.push(item)
+		}
+		return res;
 		},
 
 		hideBox: function() {
@@ -136,6 +143,7 @@ const Game = (function() {
 			if (event.target.dataset.box) {
 				this.renderBox();
 				points.innerHTML = score += 1;
+				
 			}
 		},
 
