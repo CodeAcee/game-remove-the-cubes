@@ -124,14 +124,6 @@ const Game = (function() {
 			gameArea.insertAdjacentElement('afterbegin',box);
 		},
 
-		repeat:function (item, times) {
-			let res = [];
-			for(let i = 0; i < times; i++) {
-			res.push(item)
-		}
-		return res;
-		},
-
 		hideBox: function() {
 			document.querySelector('.box').style.display = 'none';
 		},
